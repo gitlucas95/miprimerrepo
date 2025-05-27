@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "325734599073",
+    "project_id": "estacionarhoy",
+    "storage_bucket": "estacionarhoy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:325734599073:android:7be6fb9ca9d05c7f3ee3e0",
+        "android_client_info": {
+          "package_name": "com.example.estacionarapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyfisD-p4Cx1PE858oZUwstGBgLUx_ogw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
