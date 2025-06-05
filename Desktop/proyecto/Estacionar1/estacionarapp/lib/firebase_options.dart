@@ -73,4 +73,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'estacionarhoy.firebasestorage.app',
     measurementId: 'G-H6623YYLLG',
   );
+
 }

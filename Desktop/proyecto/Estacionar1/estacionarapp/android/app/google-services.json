@@ -12,7 +12,12 @@
           "package_name": "com.example.estacionarapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "325734599073-d67r3pcludmotcj1g2h9hjt73os4cjjb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAyfisD-p4Cx1PE858oZUwstGBgLUx_ogw"
@@ -20,7 +25,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "325734599073-d67r3pcludmotcj1g2h9hjt73os4cjjb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

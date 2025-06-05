@@ -1,79 +1,48 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'firebase_options.dart';
-import 'login_page.dart'; // Contiene LoginPage y HomePage
+import 'firebase_options.dart'; 
+import 'pages/splash_screen.dart';
+import 'pages/home_page.dart';
+import 'pages/login_page.dart';
+import 'pages/register_page.dart';
+import 'pages/profile_page.dart';
+import 'pages/offer_space_page.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(const MyApp());
+
+  if (kIsWeb) {
+    // Para Flutter Web: inicializar con opciones explícitas
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  } else {
+    // Para Android/iOS: usa configuración automática
+    await Firebase.initializeApp();
+  }
+
+  runApp(const ParkAmigoApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ParkAmigoApp extends StatelessWidget {
+  const ParkAmigoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Estacionar Hoy',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const AuthGate(),
+      title: 'ParkAmigo',
+      theme: ThemeData(primarySwatch: Colors.green),
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
       routes: {
-        '/register': (context) => const RegisterPage(),
-        '/recover': (context) => const PasswordRecoveryPage(),
+        '/': (_) => SplashScreen(),
+        '/home': (_) => HomePage(),
+        '/login': (_) => LoginPage(),
+        '/register': (_) => RegisterPage(),
+        '/profile': (_) => const ProfilePage(),
+        '/offer_space': (_) => OfferSpacePage(),
       },
-    );
-  }
-}
-
-class AuthGate extends StatelessWidget {
-  const AuthGate({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<User?>(
-      stream: FirebaseAuth.instance.authStateChanges(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
-          );
-        }
-        if (snapshot.hasData) {
-          return const HomePage(); // ← Aquí va la nueva HomePage real
-        }
-        return const LoginPage();
-      },
-    );
-  }
-}
-
-// Placeholder para futuras pantallas
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Registro')),
-      body: const Center(child: Text('Página de registro')),
-    );
-  }
-}
-
-class PasswordRecoveryPage extends StatelessWidget {
-  const PasswordRecoveryPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Recuperar Contraseña')),
-      body: const Center(child: Text('Página de recuperación de contraseña')),
     );
   }
 }
