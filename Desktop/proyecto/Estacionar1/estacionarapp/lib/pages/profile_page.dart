@@ -35,7 +35,8 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.person, size: 80, color: Colors.green),
+            const Icon(Icons.person,
+                size: 80, color: Color.fromRGBO(29, 33, 119, 10)),
             Text(
               user?.displayName ?? 'Nombre del Usuario',
               style: const TextStyle(fontSize: 18),

@@ -53,7 +53,20 @@ class LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Iniciar Sesión')),
+      appBar: AppBar(
+        backgroundColor:
+            const Color.fromRGBO(29, 33, 119, 10), // Cambia el color de fondo
+        title: Text(
+          'Iniciar Sesión',
+          style: TextStyle(
+            color: Colors.white, // Cambia el color del texto
+            fontWeight: FontWeight.bold, // Opcional
+            fontSize: 20, // Opcional
+          ),
+        ),
+        iconTheme: IconThemeData(
+            color: Colors.white), // Si usás íconos, para que se vean blancos
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

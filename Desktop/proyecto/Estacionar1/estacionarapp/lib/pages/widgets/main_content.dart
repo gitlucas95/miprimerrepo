@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'feature_tile.dart';
 
 class MainContent extends StatelessWidget {
-  final Color green = const Color(0xFF1AA34A);
+  final Color green = const Color.fromRGBO(29, 33, 119, 10);
 
   const MainContent({super.key});
 
@@ -41,10 +41,9 @@ class MainContent extends StatelessWidget {
               alignment: WrapAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () {
-                    // Aquí puedes agregar funcionalidad para buscar estacionamiento
-                  },
-                  style: ElevatedButton.styleFrom(backgroundColor: green),
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromRGBO(29, 33, 119, 10)),
                   child: const Text('Buscar estacionamiento'),
                 ),
                 OutlinedButton(
